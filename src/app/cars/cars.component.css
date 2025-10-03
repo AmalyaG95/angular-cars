@@ -1,0 +1,19 @@
+.black-block {
+  position: absolute;
+  width: 477px;
+  height: 910px;
+  top: 0;
+  background-color: #000000;
+  z-index: -2;
+  right: calc(50% - 780px);
+
+  /* @media screen and (max-width: 767px) {
+    display: none;
+  } */
+}
+
+@media screen and (max-width: 767px) {
+  .black-block {
+    display: none;
+  }
+}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-test": {
+    "angular-starter": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,14 +13,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-test",
+            "outputPath": "dist/angular-starter",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
-            "scripts": []
+            "assets": [{ "glob": "**/*", "input": "public" }],
+            "styles": ["src/global_styles.css", "src/app/app_styles.css"],
+            "scripts": [],
+            "baseHref": "/cars/"
           },
           "configurations": {
             "production": {
@@ -53,10 +54,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-test:build:production"
+              "buildTarget": "angular-starter:build:production"
             },
             "development": {
-              "browserTarget": "angular-test:build:development"
+              "buildTarget": "angular-starter:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -64,7 +65,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-test:build"
+            "browserTarget": "angular-starter:build"
           }
         },
         "test": {
@@ -72,12 +73,15 @@
           "options": {
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
+            "assets": [{ "glob": "**/*", "input": "public" }],
+            "styles": ["src/global_styles.css", "src/app/app_styles.css"],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "595666e7-26c2-4430-977e-e7d17304c651"
   }
 }

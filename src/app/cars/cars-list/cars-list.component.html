@@ -1,0 +1,52 @@
+<section class="cars" id="cars">
+  <div class="container">
+    <h2>Выберите автомобиль</h2>
+    <div class="cars-content" id="cars-content" #carsContent>
+      <aside class="cars-filter">
+        <ul>
+          @for (filter of carsFilter; track $index) {
+          <li
+            [class.active]="filter.active"
+            (click)="changeFilter(filter, carsContent)"
+          >
+            {{ filter.name }}
+          </li>
+          }
+        </ul>
+      </aside>
+      <div class="cars-items">
+        @for (car of cars; track car.title) {
+        <article class="car">
+          <img src="{{ car.image }}" alt="car" />
+          <div class="car-details">
+            <h4>{{ car.title }}</h4>
+            <p>
+              {{ car.text }}
+            </p>
+            <div class="car-action">
+              <ul>
+                @for (period of ["на 1 сутки", "на 1-3 суток", "на 3+ суток"];
+                track $index) {
+                <li>
+                  <div class="car-perion">{{ period }}</div>
+                  <div class="car-price">
+                    {{ car.prices[$index] }} $ @if ($index > 0) {
+                    <span>/сут</span>}
+                  </div>
+                </li>
+                }
+              </ul>
+              <a
+                href="#order"
+                class="button white-button"
+                (click)="orderForm.get('car')?.setValue(car.title)"
+                >Забронировать</a
+              >
+            </div>
+          </div>
+        </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>

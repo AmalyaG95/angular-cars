@@ -1,0 +1,91 @@
+.order {
+  padding-top: 159px;
+  padding: 130px;
+}
+
+.order .container {
+  position: relative;
+}
+
+.order img {
+  position: absolute;
+  top: -25px;
+  left: -530px;
+}
+
+.order form {
+  margin-left: 714px;
+  max-width: 486px;
+}
+
+.order h3 {
+  font-weight: normal;
+  font-size: 65px;
+  line-height: 100%;
+  margin-bottom: 40px;
+}
+
+.order p {
+  font-size: 24px;
+  line-height: 120%;
+  color: #d4d4d4;
+  margin-bottom: 60px;
+  max-width: 455px;
+}
+
+.order-form {
+  width: 344px;
+}
+
+::placeholder {
+  color: #d4d4d4;
+}
+
+.order-form input {
+  width: 100%;
+  height: 68px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  margin-bottom: 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+.order-form input.error {
+  border-color: red;
+}
+
+@media screen and (max-width: 1225px) {
+  .order form {
+    margin-left: auto;
+  }
+
+  .order img {
+    top: -25px;
+    left: auto;
+    right: 450px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .order h3 {
+    font-size: 50px;
+  }
+
+  .order-form {
+    width: 100%;
+  }
+
+  .order-form .button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .order h3 {
+    font-size: 46px;
+  }
+}

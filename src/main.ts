@@ -1,7 +1,17 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { CarsComponent } from './app/cars/cars.component';
+import { provideHttpClient } from '@angular/common/http';
 
-import { AppModule } from './app/app.module';
+@Component({
+  selector: 'app-root',
+  imports: [CarsComponent],
+  template: `<app-cars></app-cars>`,
+})
+export class App {
+  name = 'Angular';
+}
 
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(App, {
+  providers: [provideHttpClient()],
+});
